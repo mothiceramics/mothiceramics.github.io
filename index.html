@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mothi Ceramics | Premium Tiles & Sanitaryware Showroom, Mysuru</title>
+  <!-- Google Fonts: Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #fefefe;
+      color: #1e1e2a;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    /* Headings & classic elements use Times New Roman for elegant touch */
+    h1, h2, h3, h4, h5, h6,
+    .logo h1,
+    .nav-links a,
+    .btn,
+    .slide-content h2,
+    .about-text h3,
+    .card-content h3,
+    .why-card h4,
+    .testimonial-card h3,
+    .contact-card h3,
+    .footer-col h4,
+    .cta-section h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+    }
+
+    /* Slight refinement for buttons and navigation to keep consistency */
+    .btn, .nav-links a {
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Body text stays Open Sans for modern readability */
+    p, li, .info-item, .slide-content p, .about-container p, .contact-card p, .footer-col p, .testimonial-card p {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    /* Inputs, textarea use Open Sans */
+    input, textarea, button, .dropdown-images, .enquiry-form-dropdown {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    :root {
+      --gold: #c9a03d;
+      --gold-light: #e0b354;
+      --dark-blue: #1e2a47;
+      --grey-100: #f8f9fc;
+      --grey-200: #eef2f5;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 30px 40px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .logo-img {
+      width: 160px;  /* increased from 120px for better visibility */
+      height: 160px;
+      object-fit: contain;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--dark-blue), var(--gold));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--dark-blue), var(--gold));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      transition: 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2c3e50;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* pages */
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .active-page {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* hero slider */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 0 1.5rem 1.5rem;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .slide {
+      flex: 0 0 100%;
+      height: 560px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .slide::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+    }
+    .slide-content {
+      position: absolute;
+      bottom: 20%;
+      left: 8%;
+      z-index: 2;
+      color: white;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      animation: slideUp 0.6s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .slide-content h2 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .slide-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 3;
+      transition: 0.2s;
+    }
+    .slider-arrow:hover { background: var(--gold); }
+    .slider-arrow.prev { left: 20px; }
+    .slider-arrow.next { right: 20px; }
+
+    /* buttons */
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    .btn-primary {
+      background: var(--dark-blue);
+      color: white;
+    }
+    .btn-primary:hover { background: #0f1a30; transform: scale(1.02); }
+
+    .about-text p {
+      margin-bottom: 20px;
+    }
+
+    .about-text button {
+      margin-top: 20px;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    .btn-outline:hover { background: white; color: var(--dark-blue); border-color: white; }
+    .btn-gold {
+      background: var(--gold);
+      color: #1e1e2a;
+    }
+    .btn-gold:hover { background: #b88d2c; transform: translateY(-2px); }
+
+    /* quick info bar */
+    .info-bar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 2rem;
+      box-shadow: var(--shadow-sm);
+      margin: 2rem 0;
+      gap: 1rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* about preview */
+    .about-preview {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin: 2rem 0;
+      background: var(--grey-100);
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+    .about-img {
+      flex: 1;
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .about-img img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
+    .about-img img:hover { transform: scale(1.02); }
+    .about-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    /* 3D cards grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .card-3d {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform-style: preserve-3d;
+      perspective: 800px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+    .card-3d:hover {
+      transform: translateY(-12px) rotateX(3deg) scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-img {
+      height: 210px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s;
+    }
+    .card-3d:hover .card-img { transform: scale(1.05); }
+    .card-content {
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    /* DROPDOWN STYLES */
+    .category-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--grey-100);
+      border-radius: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .category-dropdown.open {
+      max-height: 800px;
+      padding: 1.5rem;
+    }
+    .dropdown-images {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .dropdown-img {
+      flex: 1;
+      min-width: 200px;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .dropdown-img img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .dropdown-img:hover img {
+      transform: scale(1.05);
+    }
+    .enquiry-form-dropdown {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .enquiry-form-dropdown input,
+    .enquiry-form-dropdown textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .enquiry-form-dropdown button {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    
+    /* ABOUT PAGE - clean bullets */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .about-container > div {
+      flex: 1 1 280px;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease;
+    }
+    .about-container > div:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .about-container h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      color: var(--dark-blue);
+      letter-spacing: -0.02em;
+    }
+    .about-container p {
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .about-container ul {
+      margin: 1rem 0 0.5rem 1.2rem;
+      padding-left: 0.5rem;
+      list-style-type: disc;
+    }
+    .about-container li {
+      margin: 0.6rem 0;
+      line-height: 1.4;
+    }
+    .about-container div p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CONTACT PAGE - horizontal layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .contact-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--dark-blue);
+      letter-spacing: -0.02em;
+      border-left: 4px solid var(--gold);
+      padding-left: 1rem;
+    }
+    .contact-card p {
+      margin: 0.8rem 0;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .contact-card a {
+      color: var(--dark-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-card a:hover {
+      color: var(--gold);
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .enquiry-form input, .enquiry-form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 0.7rem 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .enquiry-form input:focus, .enquiry-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 160, 61, 0.2);
+    }
+    .enquiry-form button {
+      width: 100%;
+      margin-top: 0.8rem;
+    }
+    #enquiryMsg {
+      margin-top: 1rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* product sliders (carousel) */
+    .carousel-section {
+      margin: 2.5rem 0;
+    }
+    .carousel {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .carousel-window {
+      overflow: hidden;
+      flex: 1;
+      border-radius: 1.2rem;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 1rem;
+      transition: transform 0.3s;
+    }
+    .carousel-slide:hover { transform: scale(1.02); }
+    .carousel-btn {
+      background: var(--gold);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .carousel-btn:hover { background: var(--dark-blue); color: white; }
+
+    /* testimonials slider */
+    .testimonial-slider {
+      position: relative;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    .testi-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-card {
+      flex: 0 0 100%;
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      margin: 0 0.5rem;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin: 0.5rem 0;
+    }
+
+    /* why choose us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .why-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .why-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    /* cta */
+    .cta-section {
+      background: linear-gradient(135deg, var(--dark-blue), #2c3e66);
+      padding: 2rem;
+      border-radius: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    /* map */
+    .map-container {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+    }
+
+    /* footer */
+    footer {
+      background: #11181c;
+      color: #ccc;
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-col a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin: 0.5rem 0;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+      color: var(--gold);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .social-icons a:hover { color: white; transform: translateY(-2px); }
+
+    /* floating buttons - improved colors for mobile visibility */
+    .whatsapp-float, .call-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .call-float {
+      bottom: 95px;
+      background: var(--gold);  /* changed from dark blue to gold for better visibility */
+      color: #1e1e2a;
+    }
+    .call-float:hover {
+      background: #b88d2c;
+      transform: scale(1.08);
+    }
+    .whatsapp-float:hover, .call-float:hover { transform: scale(1.08); }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; padding: 1rem; }
+      .slide { height: 420px; }
+      .slide-content h2 { font-size: 1.8rem; }
+      .slide-content { bottom: 15%; left: 5%; }
+      .about-preview { flex-direction: column; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .carousel-slide { height: 220px; }
+      .info-bar { justify-content: center; gap: 1.5rem; }
+      .slider-arrow { width: 36px; height: 36px; font-size: 1rem; }
+      .btn { padding: 0.6rem 1.2rem; }
+      .footer-content { flex-direction: column; text-align: center; }
+      .about-container {
+        flex-direction: column;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .dropdown-images { flex-direction: column; }
+      .dropdown-img img { height: 180px; }
+      /* adjust logo size on mobile to be slightly smaller but still prominent */
+      .logo-img {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    /* scroll animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo" id="logoHome">
+    <img src="https://i.ibb.co/CKGQr0b8/Gemini-Generated-Image-6qs0mf6qs0mf6qs0-removebg-preview.png" alt="Mothi Logo" class="logo-img">
+  </div>
+  <div class="nav-links">
+    <a href="#" data-page="home" class="nav-link active">Home</a>
+    <a href="#" data-page="products" class="nav-link">Products</a>
+    <a href="#" data-page="about" class="nav-link">About</a>
+    <a href="#" data-page="contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page active-page">
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+      <div class="slider-track" id="heroTrack"></div>
+      <button class="slider-arrow prev" id="heroPrev">❮</button>
+      <button class="slider-arrow next" id="heroNext">❯</button>
+    </div>
+
+    <div class="container">
+      <!-- Quick Info Bar -->
+      <div class="info-bar fade-up">
+        <div class="info-item">📍 Mysuru</div>
+        <div class="info-item">🚚 Fast Delivery</div>
+        <div class="info-item">🏆 Trusted Dealer</div>
+        <div class="info-item">💰 Best Pricing</div>
+      </div>
+
+      <!-- About Preview -->
+      <div class="about-preview fade-up">
+        <div class="about-img"><img src="https://i.ibb.co/MymCWLkL/unnamed.webp" alt="Showroom"></div>
+        <div class="about-text">
+          <h3>Mysuru’s Premium Tile & Sanitaryware Destination</h3>
+          <p>Since 2005, Mothi Ceramics brings international trends with 1000+ designs, expert guidance, and unmatched quality. Experience luxury at affordable prices.</p>
+          <button class="btn btn-primary" id="readMoreBtn">Read More →</button>
+        </div>
+      </div>
+
+      <!-- Product Categories (3D Cards) -->
+      <h2 class="fade-up">Explore Our Range</h2>
+      <div class="card-grid" id="categoryGrid"></div>
+
+      <!-- Product Showcase Sliders -->
+      <div class="fade-up"><h2>✨ Tiles Collection</h2><div id="tilesCarousel" class="carousel-section"><div class="carousel" data-carousel="tiles"></div></div></div>
+      <div class="fade-up"><h2>🚿 Bathroom Fittings</h2><div id="fittingsCarousel" class="carousel-section"><div class="carousel" data-carousel="fittings"></div></div></div>
+      <div class="fade-up"><h2>🚽 Sanitaryware</h2><div id="sanitaryCarousel" class="carousel-section"><div class="carousel" data-carousel="sanitary"></div></div></div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonial-slider fade-up">
+        <h2>⭐ Customer Reviews</h2>
+        <div class="testi-track" id="testiTrack"></div>
+        <button class="slider-arrow prev" id="testiPrev" style="position: absolute; left: -10px; top: 50%;">❮</button>
+        <button class="slider-arrow next" id="testiNext" style="position: absolute; right: -10px; top: 50%;">❯</button>
+      </div>
+
+      <!-- Why Choose Us -->
+      <div class="why-grid fade-up">
+        <div class="why-card"><div class="why-icon">✨</div><h4>Premium Quality</h4></div>
+        <div class="why-card"><div class="why-icon">🌈</div><h4>Wide Variety</h4></div>
+        <div class="why-card"><div class="why-icon">💰</div><h4>Affordable Pricing</h4></div>
+        <div class="why-card"><div class="why-icon">🎓</div><h4>Expert Guidance</h4></div>
+      </div>
+
+      <!-- Strong CTA -->
+      <div class="cta-section fade-up">
+        <h3 style="color: white;">Visit Our Showroom Today!</h3>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
+          <button class="btn btn-gold" id="ctaCall">📞 Call Now</button>
+          <button class="btn btn-outline" id="ctaWhatsapp" style="background:white; color:var(--dark-blue);">💬 WhatsApp</button>
+          <button class="btn btn-primary" id="ctaDirections">📍 Get Directions</button>
+        </div>
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-container fade-up">
+        <iframe src="https://maps.google.com/maps?q=143+D+Devaraj+Urs+Rd,+Shivarampet,+Mysuru,+Karnataka+570001&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS PAGE -->
+  <div id="products-page" class="page">
+    <div class="container">
+      <h2>Our Premium Collection</h2>
+      <div id="productFilters" style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;"></div>
+      <div id="productsGrid" class="card-grid"></div>
+    </div>
+  </div>
+
+  <!-- ABOUT PAGE - clean bullets (no tick marks) -->
+  <div id="about-page" class="page">
+    <div class="container">
+      <h2>About Mothi Ceramics</h2>
+      <div class="about-container">
+        <div>
+          <h3>🏺 Our Legacy</h3>
+          <p>Trusted name in Mysuru for premium tiles, sanitaryware, and bath fittings. We blend elegance with durability, serving since 2005 with a commitment to excellence.</p>
+          <h3>✨ Why Choose Us</h3>
+          <ul>
+            <li>1000+ designs & international trends</li>
+            <li>Expert consultation & project support</li>
+            <li>Authorized premium brands</li>
+            <li>Best price guarantee</li>
+          </ul>
+        </div>
+        <div>
+          <h3>🏢 Showroom Highlights</h3>
+          <p>5000 sq.ft experience center with live mockups, VR room, and personalized assistance. Walk through real installations and feel the quality before you buy.</p>
+          <div style="margin-top:1.5rem;">
+            <p>📍 143, D Devaraj Urs Rd, Shivarampet, Mysuru</p>
+            <p>⏰ Mon-Sat: 10AM-8PM | Sun: 11AM-5PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE - horizontal split with refined spacing -->
+  <div id="contact-page" class="page">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📍 Showroom Address</h3>
+          <p>🏢 Mothi Ceramics<br>143, D Devaraj Urs Rd, Shivarampet, Mysuru - 570001</p>
+          <p>📞 <a href="tel:9901667438">9901667438</a></p>
+          <p>☎️ 08212423202 / 03</p>
+          <div class="contact-buttons">
+            <button class="btn btn-primary" id="contactCall">Call Now</button>
+            <button class="btn btn-outline" id="contactWhatsapp" style="background:var(--dark-blue); color:white; border:none;">WhatsApp</button>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>📋 Quick Enquiry</h3>
+          <div class="enquiry-form">
+            <input type="text" id="enqName" placeholder="Your full name">
+            <input type="tel" id="enqPhone" placeholder="Phone number">
+            <button class="btn btn-primary" id="submitEnquiry">Send Enquiry →</button>
+            <p id="enquiryMsg"></p>
+          </div>
+        </div>
+      </div>
+      <div class="map-container" style="margin-top:2rem;">
+        <iframe src="https://maps.google.com/maps?q=143+D+Devaraj+Urs+Rd,+Shivarampet,+Mysuru,+Karnataka+570001&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-col"><h4>Mothi Ceramics</h4><p>143, D Devaraj Urs Rd,<br>Shivarampet, Mysuru - 570001</p><p>📞 9901667438<br>☎️ 08212423202 / 03</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="#" data-page="home">Home</a><a href="#" data-page="products">Products</a><a href="#" data-page="about">About</a><a href="#" data-page="contact">Contact</a></div>
+    <div class="footer-col"><h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/mothi_ceramics?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:1.5rem;">© 2025 Mothi Ceramics | Premium Showroom, Mysuru</div>
+  <div style="text-align:center; margin-top:0.8rem; font-size:0.85rem; opacity:0.8;">Designed By Ai Shikro.</div>
+</footer>
+
+<!-- Floating Buttons -->
+<a href="https://wa.me/919901667438?text=Hi%20I%20am%20interested%20in%20Mothi%20Ceramics%20products" target="_blank" class="whatsapp-float">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:28px;">
+</a>
+<a href="tel:919901667438" class="call-float">📞</a>
+
+<script>
+  // ---------- DATA ----------
+  const heroSlides = [
+    { img: "https://i.ibb.co/HD3gjH9G/floor-1.jpg", title: "Premium Tiles", tag: "Luxury flooring for every space" },
+    { img: "https://i.ibb.co/zWzRhvQM/Gemini-Generated-Image-enbbx6enbbx6enbb.png", title: "Elegant Bath Fittings", tag: "Modern designs, lasting quality" },
+    { img: "https://i.ibb.co/LXj6YPsV/gfroom.jpg", title: "Premium Sanitaryware", tag: "German technology & style" }
+  ];
+  const categories = [
+    { name: "Tiles", img: "https://i.ibb.co/Vcj5FTtd/mothi-tiles.jpg", filter: "Tiles", images: ["https://i.ibb.co/LXWKbvFM/mothi-tiles-01.jpg", "https://i.ibb.co/GQ4B7Pv6/tile-angle-2.jpg"] },
+    { name: "Sanitaryware", img: "https://i.ibb.co/nqkrX5PX/mothi-sanitary.jpg", filter: "Sanitaryware", images: ["https://i.ibb.co/jZkDC1bv/wall-hung.jpg", "https://i.ibb.co/6762TLhv/mothi-wc-angles.jpg"] },
+    { name: "Bathroom Fittings", img: "https://i.ibb.co/67y51Ddp/bt-fit.jpg", filter: "Bathroom Fittings", images: ["https://i.ibb.co/WNhs5cRq/rain-shower-angle.jpg", "https://i.ibb.co/fdkL9SqK/body-jets.jpg"] },
+    { name: "Faucets", img: "https://i.ibb.co/99kQxjyp/tap.jpg", filter: "Faucets", images: ["https://i.ibb.co/rGtX8v5z/gold-tap.jpg", "https://i.ibb.co/LzYF150z/chrome-tap.jpg"] }
+  ];
+  const products = [
+    { id:1, name:"Marble Gloss Tiles", category:"Tiles", img:"https://i.ibb.co/Fbz08BLd/marble-product.jpg" },
+    { id:2, name:"Wooden Plank Tiles", category:"Tiles", img:"https://i.ibb.co/nN1Lhr8K/wood-tile-product.jpg" },
+    { id:3, name:"Wall Hung WC", category:"Sanitaryware", img:"https://i.ibb.co/qLN135hm/wall-hung-product.jpg" },
+    { id:4, name:"Concealed Cistern", category:"Sanitaryware", img:"https://i.ibb.co/tM2hFvjD/conseald-product.jpg" },
+    { id:5, name:"Rain Shower", category:"Bathroom Fittings", img:"https://i.ibb.co/vxbpLNR0/rain-shower-product.jpg" },
+    { id:6, name:"Body Jets", category:"Bathroom Fittings", img:"https://i.ibb.co/Zp5Q1PcS/body-jet-product.jpg" },
+    { id:7, name:"Chrome Faucet", category:"Faucets", img:"https://i.ibb.co/ymRYR8fX/chrome-product.jpg" },
+    { id:8, name:"Gold Faucet", category:"Faucets", img:"https://i.ibb.co/6JwbW42G/gold-product.jpg" }
+  ];
+  const carouselData = {
+    tiles: ["https://i.ibb.co/b5m1hL2T/Gemini-Generated-Image-d5144kd5144kd514.png","https://i.ibb.co/zWH1xqcG/Gemini-Generated-Image-1jij0r1jij0r1jij.png","https://i.ibb.co/Df3sbxDj/marble.jpg"],
+    fittings: ["https://i.ibb.co/4nJdKs2R/rain-shower.jpg","https://i.ibb.co/Lz237Dfr/slides.jpg","https://i.ibb.co/zV9fxSPt/slide-faysha.jpg"],
+    sanitary: ["https://i.ibb.co/hxbwrNRZ/43ba73c1-e4a2-4279-891e-62e076975036.jpg","https://i.ibb.co/0zyxNBT/my-bt.jpg","https://i.ibb.co/v4CcBCCz/e9ad2160-feaa-46fb-aefe-65347bd6269a.jpg"]
+  };
+  const testimonials = [
+    { name: "Priya Sharma", text: "Amazing quality and service! Highly recommend.", rating: 5 },
+    { name: "Ramesh Iyer", text: "Best sanitaryware showroom in Mysuru. Great pricing.", rating: 5 },
+    { name: "Anita Kulkarni", text: "Beautiful tile collection and professional staff.", rating: 4.5 }
+  ];
+
+  function renderStars(rating) {
+    let stars = '';
+    for (let i=1; i<=5; i++) stars += i<=rating ? '★' : '☆';
+    return `<div class="stars">${stars}</div>`;
+  }
+
+  let heroIndex = 0;
+  function initHero() {
+    const track = document.getElementById('heroTrack');
+    track.innerHTML = heroSlides.map(s => `<div class="slide" style="background-image:url('${s.img}');"><div class="slide-content"><h2>${s.title}</h2><p>${s.tag}</p><div class="slide-buttons"><button class="btn btn-primary exploreHeroBtn">Explore Products</button><button class="btn btn-gold callHeroBtn">Call Now</button><button class="btn btn-outline whatsappHeroBtn">WhatsApp</button></div></div></div>`).join('');
+    const update = () => track.style.transform = `translateX(-${heroIndex*100}%)`;
+    document.getElementById('heroPrev').onclick = () => { heroIndex = (heroIndex-1+heroSlides.length)%heroSlides.length; update(); };
+    document.getElementById('heroNext').onclick = () => { heroIndex = (heroIndex+1)%heroSlides.length; update(); };
+    setInterval(() => { heroIndex = (heroIndex+1)%heroSlides.length; update(); }, 5000);
+    update();
+    document.querySelectorAll('.exploreHeroBtn').forEach(btn => btn.onclick = () => navigateToPage('products'));
+    document.querySelectorAll('.callHeroBtn').forEach(btn => btn.onclick = () => window.location.href='tel:9901667438');
+    document.querySelectorAll('.whatsappHeroBtn').forEach(btn => btn.onclick = () => window.open('https://wa.me/919901667438?text=Hi%2C%20interested%20in%20Mothi%20Ceramics','_blank'));
+  }
+
+  let currentOpenDropdown = null;
+  function createDropdownForCategory(cat, index) {
+    const dropdownDiv = document.createElement('div');
+    dropdownDiv.className = 'category-dropdown';
+    dropdownDiv.id = `dropdown-${index}`;
+    dropdownDiv.innerHTML = `
+      <div class="dropdown-images">
+        <div class="dropdown-img"><img src="${cat.images[0]}" alt="${cat.name} angle 1"></div>
+        <div class="dropdown-img"><img src="${cat.images[1]}" alt="${cat.name} angle 2"></div>
+      </div>
+      <div class="enquiry-form-dropdown">
+        <h4>Interested in ${cat.name}?</h4>
+        <input type="text" placeholder="Your Name" class="drop-name">
+        <input type="tel" placeholder="Phone Number" class="drop-phone">
+        <textarea rows="2" placeholder="Message (optional)" class="drop-msg"></textarea>
+        <button class="btn btn-primary submit-dropdown">Submit Enquiry</button>
+      </div>
+    `;
+    const submitBtn = dropdownDiv.querySelector('.submit-dropdown');
+    submitBtn.addEventListener('click', () => {
+      const name = dropdownDiv.querySelector('.drop-name').value;
+      const phone = dropdownDiv.querySelector('.drop-phone').value;
+      if(name && phone) {
+        alert("Thank you! We will contact you soon.");
+        dropdownDiv.querySelector('.drop-name').value = '';
+        dropdownDiv.querySelector('.drop-phone').value = '';
+        dropdownDiv.querySelector('.drop-msg').value = '';
+      } else {
+        alert("Please fill in your name and phone number.");
+      }
+    });
+    return dropdownDiv;
+  }
+
+  function buildCategoryCards() {
+    const grid = document.getElementById('categoryGrid');
+    grid.innerHTML = '';
+    const dropdowns = [];
+    categories.forEach((cat, idx) => {
+      const card = document.createElement('div');
+      card.className = 'card-3d';
+      card.setAttribute('data-category-idx', idx);
+      card.innerHTML = `<div class="card-img" style="background-image:url('${cat.img}');"></div><div class="card-content"><h3>${cat.name}</h3><p>View Collection →</p></div>`;
+      const dropdown = createDropdownForCategory(cat, idx);
+      dropdowns.push(dropdown);
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentOpenDropdown && currentOpenDropdown !== dropdown) {
+          currentOpenDropdown.classList.remove('open');
+        }
+        dropdown.classList.toggle('open');
+        currentOpenDropdown = dropdown.classList.contains('open') ? dropdown : null;
+      });
+      grid.appendChild(card);
+      grid.appendChild(dropdown);
+    });
+  }
+
+  function initProductsPage() {
+    const filterContainer = document.getElementById('productFilters');
+    const cats = ['All', 'Tiles', 'Sanitaryware', 'Bathroom Fittings', 'Faucets'];
+    filterContainer.innerHTML = cats.map(c => `<button class="btn btn-outline filter-btn" data-cat="${c}">${c}</button>`).join('');
+    const grid = document.getElementById('productsGrid');
+    function render(cat) {
+      let filtered = cat === 'All' ? products : products.filter(p => p.category === cat);
+      grid.innerHTML = filtered.map(p => `<div class="card-3d"><div class="card-img" style="background-image:url('${p.img}');"></div><div class="card-content"><h3>${p.name}</h3><button class="btn btn-primary quickView">Enquire</button></div></div>`).join('');
+      document.querySelectorAll('.quickView').forEach(btn => {
+        btn.onclick = (e) => {
+          const productName = e.target.closest('.card-3d').querySelector('h3').innerText;
+          const message = `Hi, I am interested in ${productName}`;
+          window.open(`https://wa.me/919901667438?text=${encodeURIComponent(message)}`, '_blank');
+        };
+      });
+    }
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.style.background = '');
+        btn.style.background = 'var(--gold)';
+        render(btn.getAttribute('data-cat'));
+      });
+    });
+    render('All');
+  }
+
+  function initCarousel(containerId, images) {
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    let current = 0;
+    let startX = 0;
+    const carouselDiv = container.querySelector('.carousel');
+    carouselDiv.innerHTML = `<button class="carousel-btn prev-c">❮</button><div class="carousel-window"><div class="carousel-track" id="track-${containerId}">${images.map(img => `<div class="carousel-slide" style="background-image:url('${img}');"></div>`).join('')}</div></div><button class="carousel-btn next-c">❯</button>`;
+    const track = document.getElementById(`track-${containerId}`);
+    const update = () => track.style.transform = `translateX(-${current*100}%)`;
+    carouselDiv.querySelector('.prev-c').onclick = () => { current = (current-1+images.length)%images.length; update(); };
+    carouselDiv.querySelector('.next-c').onclick = () => { current = (current+1)%images.length; update(); };
+    setInterval(() => { current = (current+1)%images.length; update(); }, 4000);
+    const windowDiv = carouselDiv.querySelector('.carousel-window');
+    windowDiv.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    windowDiv.addEventListener('touchend', e => {
+      let diff = e.changedTouches[0].clientX - startX;
+      if(Math.abs(diff)>50) {
+        if(diff>0) current = (current-1+images.length)%images.length;
+        else current = (current+1)%images.length;
+        update();
+      }
+    });
+    update();
+  }
+
+  let testiIndex = 0;
+  function initTestimonials() {
+    const track = document.getElementById('testiTrack');
+    track.innerHTML = testimonials.map(t => `<div class="testimonial-card"><h3>${t.name}</h3>${renderStars(t.rating)}<p>“${t.text}”</p></div>`).join('');
+    const update = () => track.style.transform = `translateX(-${testiIndex*100}%)`;
+    document.getElementById('testiPrev').onclick = () => { testiIndex = (testiIndex-1+testimonials.length)%testimonials.length; update(); };
+    document.getElementById('testiNext').onclick = () => { testiIndex = (testiIndex+1)%testimonials.length; update(); };
+    setInterval(() => { testiIndex = (testiIndex+1)%testimonials.length; update(); }, 5000);
+    update();
+  }
+
+  function navigateToPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+    document.getElementById(`${pageId}-page`).classList.add('active-page');
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('data-page') === pageId);
+    if(activeLink) activeLink.classList.add('active');
+    window.scrollTo(0,0);
+    if(pageId === 'products') initProductsPage();
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => { e.preventDefault(); navigateToPage(link.getAttribute('data-page')); });
+  });
+  document.getElementById('logoHome')?.addEventListener('click', () => navigateToPage('home'));
+  document.getElementById('readMoreBtn')?.addEventListener('click', () => navigateToPage('about'));
+  document.getElementById('ctaCall')?.addEventListener('click', () => window.location.href='tel:9901667438');
+  document.getElementById('ctaWhatsapp')?.addEventListener('click', () => window.open('https://wa.me/919901667438?text=Hi%2C%20interested%20in%20Mothi%20Ceramics','_blank'));
+  document.getElementById('ctaDirections')?.addEventListener('click', () => window.open('https://maps.google.com/?q=143+D+Devaraj+Urs+Rd,+Shivarampet,+Mysuru','_blank'));
+  document.getElementById('contactCall')?.addEventListener('click', () => window.location.href='tel:9901667438');
+  document.getElementById('contactWhatsapp')?.addEventListener('click', () => window.open('https://wa.me/919901667438','_blank'));
+  document.getElementById('submitEnquiry')?.addEventListener('click', () => { const msg=document.getElementById('enquiryMsg'); msg.innerText='✅ Enquiry sent! We\'ll call you.'; setTimeout(()=>msg.innerText='',3000); });
+
+  function handleScroll() {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add('visible');
+    });
+  }
+
+  window.addEventListener('load', () => {
+    initHero();
+    buildCategoryCards();
+    initCarousel('tilesCarousel', carouselData.tiles);
+    initCarousel('fittingsCarousel', carouselData.fittings);
+    initCarousel('sanitaryCarousel', carouselData.sanitary);
+    initTestimonials();
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('fade-up'));
+  });
+</script>
+</body>
+</html>
